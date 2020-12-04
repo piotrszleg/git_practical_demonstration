@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# make sure we are in "project" directory
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+cd $SCRIPTPATH/project
+
+git checkout -b feature
+
+echo "PROMPT=\"Hi world\"
+print(PROMPT)">test.py
+
+git add .
+git commit -m "Changed \"Hello\" to \"Hi\""
+
+git log --graph --oneline --all
+
+echo "\n3. Switched to branch feature and made a small change."

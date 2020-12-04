@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# make sure we are in "project" directory
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+cd $SCRIPTPATH/project
+
+git checkout master
+
+echo "PROMPT=\"Hello universe\"
+print(PROMPT)">test.py
+
+git add .
+git commit -m "Changed \"world\" to \"universe\""
+git merge feature
+
+git log --graph --oneline --all
+
+echo "\n4. Switched back to master, made some conflicting changes and caused merge conflict."

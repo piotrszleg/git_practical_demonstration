@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# make sure we are in "project" directory
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+cd $SCRIPTPATH/project
+
+echo "PROMPT=\"Hello world\"
+print(PROMPT)">test.py
+
+git add .
+git commit -m "Extracted prompt into constant"
+git --no-pager log
+
+echo "\n2. Modified the file and commited the changes."

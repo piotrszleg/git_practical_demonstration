@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# make sure we are in "project" directory
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+cd $SCRIPTPATH/project
+
+echo "print(\"Hello world\")">test.py
+
+git init
+git add .
+git commit -m "initial commit"
+git --no-pager log
+
+echo "\n1. Created a new repository with single file and initial commit."

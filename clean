@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# make sure we are in "project" directory
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+cd $SCRIPTPATH/project
+
+rm -rf *
+rm -rf .git
